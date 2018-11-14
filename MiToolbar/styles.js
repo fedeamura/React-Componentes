@@ -1,7 +1,8 @@
 const styles = theme => {
   return {
     toolbar: {
-      paddingRight: 24 // keep right padding when drawer closed
+      paddingLeft: 12,
+      paddingRight: 12 // keep right padding when drawer closed
     },
     toolbarIcon: {
       display: "flex",
@@ -11,8 +12,8 @@ const styles = theme => {
       ...theme.mixins.toolbar
     },
     menuButton: {
-      marginLeft: 12,
-      marginRight: 12
+      // marginLeft: 12,
+      // marginRight: 12
     },
     appBar: {
       zIndex: theme.zIndex.drawer + 2
@@ -71,7 +72,9 @@ const styles = theme => {
     contenedorCargandoVisible: {
       opacity: 1
     },
-    contenedorCuerpo: {},
+    contenedorCuerpo: {
+      flex: 1
+    },
     contenedorTitulo: {
       display: "flex",
       flexDirection: "column",

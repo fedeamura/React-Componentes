@@ -82,10 +82,7 @@ class MiToolbar extends React.Component {
   onBotonCerrarSesionPress = () => {
     if (this.props.cargando) return;
     this.setState({ anchorPopupUsuario: null });
-    this.props.cerrarSesion && this.props.cerrarSesion();
-
-    // localStorage.removeItem("token");
-    // window.location.href = window.Config.URL_LOGIN;
+    this.props.onCerrarSesionClick && this.props.onCerrarSesionClick();
   };
 
   onBotonNotificacionesClick = event => {
@@ -96,6 +93,11 @@ class MiToolbar extends React.Component {
   onMenuNotificacionesClose = () => {
     if (this.props.cargando) return;
     this.setState({ menuNotificacionesAnchor: null });
+  };
+
+  onMiPerfilClick = () => {
+    this.setState({ anchorPopupUsuario: null });
+    this.props.onMiPerfilClick && this.props.onMiPerfilClick();
   };
 
   render() {
@@ -116,7 +118,6 @@ class MiToolbar extends React.Component {
 
           {this.props.renderLeftIcon === undefined && this.props.leftIcon !== undefined && (
             <IconButton
-              style={{ marginLeft: "16px" }}
               className={this.props.leftIconClassName}
               color="inherit"
               aria-label={this.props.leftIconHint || "Boton del toolbar"}
@@ -127,7 +128,7 @@ class MiToolbar extends React.Component {
           )}
 
           {/* Left icon */}
-          {this.props.renderLeftIcon === undefined && this.props.leftIcon === undefined && <div style={{ width: 16 }} />}
+          {/* {this.props.renderLeftIcon === undefined && this.props.leftIcon === undefined && <div style={{ width: 16 }} />} */}
 
           {/* Logo muni */}
           {this.props.renderLogo}
@@ -201,9 +202,8 @@ class MiToolbar extends React.Component {
               </Typography>
             </div>
 
-            <MenuItem onClick={this.handleClose}>Mi perfil</MenuItem>
-            <MenuItem divider onClick={this.handleClose}>
-              Cambiar contraseña
+            <MenuItem divider onClick={this.onMiPerfilClick}>
+              Mi perfil
             </MenuItem>
             <MenuItem onClick={this.onBotonCerrarSesionPress}>Cerrar sesión</MenuItem>
           </Menu>

@@ -25,7 +25,7 @@ Props esperadas:
 ->order (defecto 'desc') - Sentido para ordenar
 ->getFilasSeleccionadas - Función que obtendrá las un array de filas y otro de los id de aquellas seleccionadas
 ->customCell - Funcion que retornara el contenido de la columna del tipo  type: 'customCell', y estará al último
-->rowType - (defecto 'Concepto') - String que dice el tipo de filas que hay 
+->rowType - (defecto 'Concepto') - String que dice el tipo de filas que hay
 ->noCheck - Boolean que determina si la grilla muestra los checks o no
 */
 
